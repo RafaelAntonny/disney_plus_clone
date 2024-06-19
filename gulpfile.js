@@ -3,7 +3,7 @@ const sass = require('gulp-sass')(require('sass'));
 const imagemin = require('gulp-imagemin');
 
 function compileSass() {
-    return gulp.src('./src/styles/**/*.scss')
+    return gulp.src('./src/styles/*.scss')
     .pipe(sass({ outputStyle: 'compressed' }))
     .pipe(gulp.dest('./dist/css'));
 }
@@ -14,7 +14,7 @@ function minifyImage() {
     .pipe(gulp.dest('./dist/imgs'));
 }
 
-exports.default = compileSass;
+exports.default = gulp.parallel(compileSass, minifyImage);
 exports.watch = function() {
-    gulp.watch('./src/styles/**/*.scss', gulp.parallel(compileSass))
+    gulp.watch('./src/styles/*.scss', gulp.parallel(compileSass))
 }

@@ -1,24 +1,31 @@
-@use 'modules/hero';
+@use 'variables';
+@use 'hero';
+@use 'shows';
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style-type: none;
 }
 
-@mixin text($fontSize: 16px) {
+body {
+  background-color: variables.$backgroundColor;
+}
+
+@mixin text($fontSize: 1rem) {
     font-size: $fontSize;
-    line-height: $fontSize + 10px;
-    color: #FFFFFF;
+    line-height: $fontSize + 0.625rem;
+    color: variables.$primaryTextColor;
 }
 
-@mixin title($fontSize: 40px) {
+@mixin title($fontSize: 2.5rem) {
     @include text($fontSize);
-    color: #FFFFFF;
+    color: variables.$primaryTextColor;
 }
 
 .text--big {
-    @include text(18px);
+    @include text(1.125rem);
 }
 
 .text {
@@ -26,11 +33,11 @@
 }
 
 .text--small {
-    @include text(12px);
+    @include text(0.75rem);
 }
 
 .title--big {
-    @include title(44px);
+    @include title(2.75rem);
 }
 
 .title {
@@ -38,9 +45,9 @@
 }
 
 .title--small {
-    @include title(28px);
+    @include title(1.75rem);
 }
 
 .link-text {
-    @include text(18px);
+    @include text(1.125rem);
 }
