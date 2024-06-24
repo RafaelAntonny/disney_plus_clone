@@ -1,0 +1,70 @@
+@use 'variables';
+
+.footer {
+    padding: 1.625rem 0.5rem;
+
+    &__container {
+        max-width: 64rem;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        padding-bottom: 1.25rem;
+    }
+
+    &__logo {
+        width: 5rem;
+        margin: 0 auto 0.625rem;
+    }
+
+    &__links {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        &__item {
+            display: inline-block;
+
+            a {
+                text-decoration: none;
+                padding: 0.5rem 1rem;
+                display: block;
+                
+                &:hover {
+                    color: variables.$secondaryTextColor;
+                }
+            }
+        }
+    }
+    
+    p {
+        margin-bottom: 1rem;
+    }
+}
+
+.language-selector {
+    display: flex;
+    align-items: center;
+
+    img {
+        height: 1.125rem;
+        width: 1.125rem;
+    }
+
+    select {
+        background-color: transparent;
+        border: none;
+        color: variables.$primaryTextColor;
+        height: 2.375rem;
+
+        &:hover {
+            color: variables.$secondaryTextColor;
+        }
+
+        option {
+            background-color: #0e121a;
+            color: variables.$primaryTextColor;
+        }
+    }
+}

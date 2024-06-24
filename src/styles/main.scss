@@ -2,6 +2,10 @@
 @use 'hero';
 @use 'shows';
 @use 'plans';
+@use 'available-devices';
+@use 'faq';
+@use 'footer';
+@use 'header';
 
 * {
     margin: 0;
@@ -23,48 +27,160 @@ body {
 @mixin title($fontSize: 2.5rem) {
     @include text($fontSize);
     color: variables.$primaryTextColor;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .text--big {
+    @include text(1.125rem);
+
+    @media (max-width: 768px) {
+        @include title(1rem);
+    }
+}
+
+.colored-text--big {
     @include text(1.125rem);
     color: variables.$secondaryTextColor;
 }
 
 .text {
     @include text;
+
+    @media (max-width: 768px) {
+        @include text(0.875rem)
+    }
+}
+
+.colored-text {
+   @include text;
+   color: variables.$secondaryTextColor;
 }
 
 .text--small {
     @include text(0.75rem);
+
+    @media (max-width: 768px) {
+        @include text(0.625rem);
+    }
 }
 
 .title--big {
     @include title(2.75rem);
+
+    @media (max-width: 768px) {
+        @include title(1.625rem);
+    }
 }
 
 .title {
     @include title;
+
+    @media (max-width: 768px) {
+        @include title(1.5rem);
+    }
 }
 
 .title--small {
     @include title(1.75rem);
+
+    @media (max-width: 768px) {
+        @include title(1.375rem);
+    }
 }
 
 .link-text {
     @include text(1.125rem);
 }
 
-button {
-    display: block;
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 70px;
     font-size: 1.125rem;
-    border: none;
-    background-color: variables.$black;
-    color: variables.$primaryTextColor;
     text-transform: uppercase;
     border-radius: 4px;
-    margin: 2vw 0 8px 0;
     cursor: pointer;
+    text-decoration: none;
+    padding: 0.5rem 0.875rem;
+    letter-spacing: 1px;
+
+    &--main {
+        background-color: variables.$black;
+        color: variables.$primaryTextColor;
+        border: 1px solid variables.$black;
+
+        &:hover {
+            background-color: lighten(variables.$black, 5%);
+            border-color: lighten(variables.$black, 5%);
+        }
+    }
+
+    &--secondary {
+        background-color: variables.$secondaryButtonColor;
+        color: variables.$primaryTextColor;
+        border: 1px solid variables.$secondaryButtonColor;
+
+        &:hover {
+            background-color: lighten(variables.$secondaryButtonColor, 5%);
+            border-color: lighten(variables.$secondaryButtonColor, 5%);
+        }
+    }
+
+    &--black {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: variables.$primaryTextColor;
+        border: 1px solid variables.$primaryTextColor;
+
+        &:hover {
+            background-color: variables.$primaryTextColor;
+            color: #000;
+        }
+    }
+}
+
+.image-text-grid {
+    padding: 5.6vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    div {
+        padding: 0 2vw;
+    }
+
+    &--image-full-width {
+        display: block;
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        div {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 100%;
+            width: calc(50% - 5.6vw);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            @media (max-width: 768px) {
+                position: relative;
+                left: 0;
+                width: 100%;
+            }
+        }
+    }
 }

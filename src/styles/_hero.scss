@@ -7,12 +7,22 @@
     background-size: cover;
     text-align: center;
 
+    @media (max-width: 768px) {
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding-top: 35vw;
+    }
+
+    .button { 
+        margin: 2vw 0 8px 0;
+    }
+
     .title--small {
-        margin-bottom: 64px;
+        margin-bottom: 4px;
     }
 
     p {
-        margin-bottom: 20px;
+        margin-bottom: 1.25px;
 
         &:last-child {
             margin-top: 3.75rem;
@@ -23,16 +33,30 @@
         max-width: 640px;
 
         &__branding {
-            max-width: 480px;
-            margin: 0 auto 38px;
+            img { max-width: 480px; }
+            margin: 0 auto 2.375rem;
+
+            @media (max-width: 768px) {
+                img { max-width: 180px; }
+            }
         }
 
         &__combos {
             display: flex;
             justify-content: space-between;
 
+            @media (max-width: 768px) {
+                display: block;
+            }
+
             &__combo {
                 width: calc(50% - 12px);
+
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                    margin-bottom: 1.5rem;
+                }
 
                 img {
                     max-height: 60px;

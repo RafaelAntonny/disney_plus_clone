@@ -1,0 +1,71 @@
+@use 'variables';
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: variables.$backgroundColor;
+    transition: background-color .5 ease;
+    margin-top: -4.375rem;
+
+    &--is-hidden {
+        background-color: transparent;
+        
+        .header {
+            &__logo, &__links__item:first-child {
+                opacity: 0;
+                transition: opacity .5 ease;
+            }
+        }
+    }
+
+    &--visibility-is-hidden {
+        .header {
+            &__logo, &__links__item:first-child {
+                visibility: hidden;
+            }
+        }
+    }
+
+    &__container {
+        padding: 0.5rem 2.25rem;
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: 768px) {
+            padding: 0 0.75rem 0 1.25rem;
+        }
+    }
+
+    &__logo {
+        max-width: 5rem;
+        width: 100%;
+        margin: 0.3125rem;
+        transition: opacity .5s ease;
+
+        @media (max-width: 768px) {
+            max-width: 4rem;
+        }
+    }
+
+    &__links {
+        display: flex;
+
+        &__item {
+            margin: 0.3125rem;           
+            transition: opacity .5s ease;
+        }
+    }
+
+    .button {
+        height: 3.125rem;
+        
+        @media (max-width: 768px) {
+            font-size: 0.875rem;
+            padding: 0.5rem 0.625rem;
+            height: 2.5rem;
+            letter-spacing: 0;
+        }
+    }
+}
