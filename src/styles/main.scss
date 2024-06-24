@@ -7,6 +7,18 @@
 @use 'footer';
 @use 'header';
 
+@font-face {
+   font-family: Avenir;
+   src: url(../../fonts/Avenir-Regular.woff2);
+   font-weight: 400;
+}
+
+@font-face {
+   font-family: Avenir;
+   src: url(../../fonts/Avenir-Bold.woff2);
+   font-weight: 700;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -16,6 +28,7 @@
 
 body {
     background-color: variables.$backgroundColor;
+    font-family: Avenir, sans-serif;
 }
 
 @mixin text($fontSize: 1rem) {
