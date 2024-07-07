@@ -57,15 +57,9 @@ function toggleAnswer(element) {
 function hideHeaderElements() {
     const header = document.querySelector('header');
     header.classList.add('header--is-hidden');
-
-    setTimeout(function() {
-        if (header.classList.contains('header--is-hidden')) {
-            header.classList.add('header--visibility-is-hidden');
-        }
-    }, 500);
 }
 
 function showHeaderElements() {
     const header = document.querySelector('header');
-    header.classList.remove('header--is-hidden', 'header--visibility-is-hidden');
+    header.classList.remove('header--is-hidden');
 }

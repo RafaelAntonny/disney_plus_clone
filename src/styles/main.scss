@@ -176,7 +176,7 @@ body {
         position: relative;
 
         img {
-            width: 100%;
+            max-width: 100%;
         }
 
         div {
@@ -188,6 +188,12 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            
+            p, h2 {
+                padding: 10px;
+                border-radius: 8px;
+                background-color: variables.$backgroundColor;
+            }
 
             @media (max-width: 768px) {
                 position: relative;
